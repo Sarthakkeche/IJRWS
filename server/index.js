@@ -22,7 +22,7 @@ const corsOptions = {
   origin: [
     "https://ijrws.vercel.app",
     "http://localhost:5173",
-    "https://ijrwsadmin.vercel.app"
+    "https://ijrws-3q4i.vercel.app/"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
