@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 5000;
 // ✅ CORS
 const corsOptions = {
   origin: [
-    
+    "https://ijrws.vercel.app",
     "http://localhost:5173",
     "https://ijrwsadmin.vercel.app"
   ],
