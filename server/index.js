@@ -24,10 +24,15 @@ const corsOptions = {
     "http://localhost:5173",
     "https://ijrwsadmin.vercel.app"
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 200 // specific for some legacy browsers/proxies
 };
+
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // still here (legacy)
 
@@ -278,6 +283,14 @@ app.post("/send", async (req, res) => {
 
 // Root
 app.get("/", (req, res) => res.send("✅ IJRWS backend is running!"));
-
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error("🔥 Server Error:", err.stack);
+  res.status(500).json({ 
+    success: false, 
+    message: "Internal Server Error", 
+    error: err.message 
+  });
+});
 // Start
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
