@@ -1,0 +1,13 @@
+# Ignore node_modules for both frontend & backend
+client/node_modules
+server/node_modules
+
+# Ignore build output
+client/build
+server/build
+
+# Ignore environment files
+*.env
+
+# System files
+.DS_Store
