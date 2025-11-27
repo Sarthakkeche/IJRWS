@@ -31,11 +31,11 @@ const ContactUsContent = () => {
     const backendURL =
   import.meta.env.MODE === "development"
     ? "http://localhost:5000/send" // local testing
-    : "https://ijspr.onrender.com/send"; // Render production
+    : "https://ijrws.onrender.com/send"; // Render production
 
 
     try {
-      const res = await axios.post("https://ijspr.onrender.com/send", form);
+      const res = await axios.post("https://ijrws.onrender.com/send", form);
       setStatus("✅ Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {

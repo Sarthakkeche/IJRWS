@@ -18,7 +18,7 @@
 
 //   const fetchManuscripts = async () => {
 //     try {
-//       const res = await axios.get("https://ijspr.onrender.com/api/manuscripts");
+//       const res = await axios.get("https://ijrws.onrender.com/api/manuscripts");
 //       setManuscripts(res.data);
 //     } catch (err) {
 //       setError("Failed to load manuscripts.");
@@ -112,7 +112,7 @@ import { FaFileAlt, FaDownload, FaExclamationTriangle, FaSpinner } from "react-i
 
 const API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://ijspr.onrender.com" // <- change to your backend URL in production
+    ? "https://ijrws.onrender.com" // <- change to your backend URL in production
     : "http://localhost:5000";
 
 const isFileKey = (k) => {
@@ -143,7 +143,7 @@ export default function PendingManuscripts() {
     setLoading(true);
     setError("");
     try {
-       const res = await axios.get("https://ijspr.onrender.com/api/manuscripts/pending");
+       const res = await axios.get("https://ijrws.onrender.com/api/manuscripts/pending");
       setManuscripts(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("❌ Failed to load manuscripts:", err);

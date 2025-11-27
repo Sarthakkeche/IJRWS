@@ -17,7 +17,7 @@ const IssueManagement = () => {
 
   const fetchIssues = async () => {
     try {
-      const res = await axios.get(`https://ijspr.onrender.com/api/issues/${id}`);
+      const res = await axios.get(`https://ijrws.onrender.com/api/issues/${id}`);
       setIssues(res.data);
     } catch (err) {
       setError("Failed to load issues. Check your server.");
@@ -29,7 +29,7 @@ const IssueManagement = () => {
   const createIssue = async () => {
     if (!newIssue.trim()) return;
     try {
-      const res = await axios.post(`https://ijspr.onrender.com/api/issues/${id}`, { name: newIssue });
+      const res = await axios.post(`https://ijrws.onrender.com/api/issues/${id}`, { name: newIssue });
       setIssues(prev => [...prev, res.data]);
       setNewIssue('');
     } catch (err) {

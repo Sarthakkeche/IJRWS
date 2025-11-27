@@ -10,11 +10,11 @@ const PagePaper = () => {
   const [issueName, setIssueName] = useState('');
 
   useEffect(() => {
-    axios.get(`https://ijspr.onrender.com/api/papers/${issueId}`)
+    axios.get(`https://ijrws.onrender.com/api/papers/${issueId}`)
       .then(res => setPapers(res.data))
       .catch(err => console.error('Error loading papers:', err));
 
-    axios.get(`https://ijspr.onrender.com/api/issues`)
+    axios.get(`https://ijrws.onrender.com/api/issues`)
       .then(res => {
         const issue = res.data.find(i => i._id === issueId);
         if (issue) setIssueName(issue.name || issue.number || "Unknown Issue");
@@ -50,7 +50,7 @@ const PagePaper = () => {
                <h3 className="text-lg font-semibold text-center text-gray-700">{paper.Author}</h3>
                 <h4 className="text-lg font-semibold text-center text-gray-700">{paper.Date}</h4>
               <a
-                href={`https://ijspr.onrender.com${paper.fileUrl}`}
+                href={`https://ijrws.onrender.com${paper.fileUrl}`}
                 download
                 className="mt-4 bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600"
               >

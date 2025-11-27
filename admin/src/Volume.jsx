@@ -17,7 +17,7 @@ const VolumeManagement = () => {
   const fetchVolumes = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 500)); // Simulated delay
-      const res = await axios.get('https://ijspr.onrender.com/api/volumes');
+      const res = await axios.get('https://ijrws.onrender.com/api/volumes');
       if (Array.isArray(res.data)) {
         setVolumes(res.data);
       } else {
@@ -34,7 +34,7 @@ const VolumeManagement = () => {
     e.preventDefault();
     if (!newVolume.trim()) return;
     try {
-      const res = await axios.post('https://ijspr.onrender.com/api/volumes', { name: newVolume });
+      const res = await axios.post('https://ijrws.onrender.com/api/volumes', { name: newVolume });
       setVolumes(prev => [...prev, res.data]);
       setNewVolume('');
     } catch (err) {
